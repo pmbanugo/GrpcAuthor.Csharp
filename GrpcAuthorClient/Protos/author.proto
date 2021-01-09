@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcAuthorClient";
+
+package author;
+
+service Author {
+  rpc GetAuthor (AuthorRequest) returns (AuthorResponse);
+}
+
+message AuthorRequest {
+  string name = 1;
+}
+
+message BookReply {
+  string title = 1;
+}
+
+message AuthorResponse {
+  string name = 1;
+  repeated BookReply books_authored = 2;
+}
+
